@@ -1,0 +1,21 @@
+{
+	"name": "cssfilterlab",
+	"title": "CSS FilterLab",
+	"description": "",
+	"version": "0.4.2",
+	"homepage": "https://github.com/adobe/cssfilterlab",
+	"author": {
+		"name": "Adobe"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/adobe/cssfilterlab.git"
+	},
+	"bugs": {
+		"url": ""
+	},
+	"license": "Apache 2.0",
+	"devDependencies": {
+		"grunt": "https://nodeload.github.com/cowboy/grunt/tarball/0ba6d4b529"
+	}
+}
