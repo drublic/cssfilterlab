@@ -203,7 +203,7 @@ window.filterConfigs = {
                 rotationZ: 0
             },
             useColoredBack: 1,
-            backColor: [1.0, 1.0, 1.0, 1.0],
+            backColor: [1.0, 1.0, 1.0, 1.0]
         },
         config: {
             k: {
@@ -213,7 +213,7 @@ window.filterConfigs = {
             },
             matrix: transform(),
             useColoredBack: checkbox(),
-            backColor: color(),
+            backColor: color()
         }
     },
     "rolling-scroll": {
@@ -234,7 +234,7 @@ window.filterConfigs = {
             rollSeparation: 0.005,
             rollDepth: 500,
             useColoredBack: 1,
-            backColor: [1.0, 1.0, 1.0, 0.9],
+            backColor: [1.0, 1.0, 1.0, 0.9]
         },
         config: {
             transform: transform(),
@@ -243,7 +243,7 @@ window.filterConfigs = {
             rollSeparation: range(0, 0.1, 0.0001),
             rollDepth: range(0, 2000, 1),
             useColoredBack: checkbox(),
-            backColor: color(),
+            backColor: color()
         }
     },
     "fold": {
@@ -266,7 +266,7 @@ window.filterConfigs = {
             mapCurve: -0.3,
             minSpacing: 0.3,
             useColoredBack: 1,
-            backColor: [0.5, 0.5, 0.5, 1.0],
+            backColor: [0.5, 0.5, 0.5, 1.0]
         },
         config: {
             transform: transform(),
@@ -278,7 +278,7 @@ window.filterConfigs = {
             mapCurve: range(-0.5, 0.5, 0.01),
             minSpacing: range(0, 0.5, 0.01),
             useColoredBack: checkbox(),
-            backColor: color(),
+            backColor: color()
         }
     },
     "tile-shuffle": {
@@ -433,7 +433,7 @@ window.filterConfigs = {
             transform: transform(),
             amount: range(0, 1, 0.01),
             randomSeed: range(0, 1, 0.01)
-        },
+        }
     },
     "dissolve": {
         hasVertex: true,
