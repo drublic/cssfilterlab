@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2012 Adobe Systems Incorporated. All rights reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,7 +15,7 @@
  */
 
 (function () {
-	
+
 function builtin(fn, params) {
 	return {
 		fn: fn,
@@ -36,8 +36,8 @@ function transform() {
         type: 'transform',
         generator: 'transform',
         mixer: {
-        	fn: 'mixHash',
-        	params: ['mixNumber']
+            fn: 'mixHash',
+            params: ['mixNumber']
         }
     };
 }
@@ -65,6 +65,7 @@ function vec(type, min, max, step) {
 function vec4(min, max, step) {
 	return vec("vec4", min, max, step);
 }
+vec4();
 
 function vec3(min, max, step) {
 	return vec("vec3", min, max, step);
@@ -128,19 +129,19 @@ function normalAmountConfig (defaultValue, min, max, step) {
 	if (min === undefined) {
 		min = 0.0;
 	}
-	
+
 	if (max === undefined) {
 		max = 0.0;
 	}
-	
+
 	if (defaultValue === undefined) {
 		defaultValue = (max - min) / 2;
 	}
-	
+
 	if (step === undefined) {
 		step = (max - min) / 100;
 	}
-	
+
 	return {
 	    params: {
 	        amount: defaultValue
@@ -149,11 +150,12 @@ function normalAmountConfig (defaultValue, min, max, step) {
 	        amount: range(min, max, step)
 	    }
 	};
-};
+}
+normalAmountConfig();
 
 window.filterConfigs = {
     'drop-shadow': {
-    	type: builtin("drop-shadow", ["offset_x", "offset_y", "radius", "flood_color"]),
+        type: builtin("drop-shadow", ["offset_x", "offset_y", "radius", "flood_color"]),
         params: {
             offset_x: 5.0,
             offset_y: 5.0,
@@ -167,9 +169,9 @@ window.filterConfigs = {
             flood_color: color(true)
         }
     },
-    
+
     "blur": {
-    	type: builtin("blur", ["deviation"]),
+        type: builtin("blur", ["deviation"]),
         params: {
             deviation: 3.0
         },
@@ -177,7 +179,7 @@ window.filterConfigs = {
             deviation: units("px", range(0, 10, 0.5))
         }
     },
-    
+
     grayscale: builtinPercent("grayscale", 100),
     'hue-rotate': builtinDeg("hue-rotate", 180),
     invert: builtinPercent("invert", 100),
@@ -186,7 +188,7 @@ window.filterConfigs = {
 	sepia: builtinPercent("sepia", 100),
 	brightness: builtinPercent("brightness", 25),
 	contrast:  builtinPercent("contrast", 50),
-	
+
 	warp: {
 	    hasVertex: true,
 	    hasFragment: true,
@@ -341,12 +343,12 @@ window.filterConfigs = {
 	    meshBox: "border-box",
 	    params: {
 	        transform: {
-	        	rotationX: 0,
+	            rotationX: 0,
 	            rotationY: 0,
 	            rotationZ: 0
 	        },
-	        amount: 1, 
-	        strength: 0.4, 
+	        amount: 1,
+	        strength: 0.4,
 	        lightIntensity: 1.0
 	    },
 	    config: {
@@ -363,28 +365,28 @@ window.filterConfigs = {
 	    mesh: mesh(50, 50),
 	    meshBox: "border-box",
 	    params: {
-	    	amount: 1,
-	    	sphereRadius: 0.35,
-	    	sphereAxis: [-0.25, 1.0, 0.0],
-	    	sphereRotation: 90,
-	    	ambientLight: 0.0,
-	    	lightPosition: [1.0, -0.25, 0.25],
-	    	lightColor: [1.0, 1.0, 1.0, 1.0],
-	    	transform: {
-	    		rotationX: 0,
+	        amount: 1,
+	        sphereRadius: 0.35,
+	        sphereAxis: [-0.25, 1.0, 0.0],
+	        sphereRotation: 90,
+	        ambientLight: 0.0,
+	        lightPosition: [1.0, -0.25, 0.25],
+	        lightColor: [1.0, 1.0, 1.0, 1.0],
+	        transform: {
+	            rotationX: 0,
 	            rotationY: 0,
 	            rotationZ: 0
-	    	}
+	        }
 	    },
 	    config: {
-	    	amount: range(0, 1, 0.01),
-	    	sphereRadius: range(0, 0.5, 0.01),
-	    	sphereAxis: vec3(-1, 1, 0.01),
-	    	sphereRotation: range(0, 360, 1),
-	    	ambientLight: range(0, 1, 0.01),
-	    	lightPosition: vec3(-1, 1, 0.01),
-	    	lightColor: color(),
-	    	transform: transform()
+	        amount: range(0, 1, 0.01),
+	        sphereRadius: range(0, 0.5, 0.01),
+	        sphereAxis: vec3(-1, 1, 0.01),
+	        sphereRotation: range(0, 360, 1),
+	        ambientLight: range(0, 1, 0.01),
+	        lightPosition: vec3(-1, 1, 0.01),
+	        lightColor: color(),
+	        transform: transform()
 	    }
 	},
 	"tile-flip": {
@@ -394,22 +396,22 @@ window.filterConfigs = {
 	    mesh: mesh(25, 32),
 	    meshBox: "border-box detached",
 	    params: {
-	    	transform: {
-	    		rotationX: 0,
+	        transform: {
+	            rotationX: 0,
 	            rotationY: 0,
 	            rotationZ: 0
-	    	},
-	    	amount: 0.2,
-	    	randomness: 2.0,
-	    	flipAxis: [0.0, 1.0, 0.0],
-	    	tileOutline: 1.0
+	        },
+	        amount: 0.2,
+	        randomness: 2.0,
+	        flipAxis: [0.0, 1.0, 0.0],
+	        tileOutline: 1.0
 	    },
 	    config: {
-	    	transform: transform(),
-	    	amount: range(0, 1, 0.01),
-	    	randomness: range(0, 3, 0.01),
-	    	flipAxis: vec3(-1, 1, 0.01),
-	    	tileOutline: checkbox()
+	        transform: transform(),
+	        amount: range(0, 1, 0.01),
+	        randomness: range(0, 3, 0.01),
+	        flipAxis: vec3(-1, 1, 0.01),
+	        tileOutline: checkbox()
 	    }
 	},
 	"burn": {
@@ -420,17 +422,17 @@ window.filterConfigs = {
 	    meshBox: "border-box",
 	    params: {
 	        transform: {
-	        	rotationX: 0,
+	            rotationX: 0,
 	            rotationY: 0,
 	            rotationZ: 0
 	        },
-	    	amount: 1.0,
-	    	randomSeed: 0.0
+	        amount: 1.0,
+	        randomSeed: 0.0
 	    },
 	    config: {
 	        transform: transform(),
-	    	amount: range(0, 1, 0.01),
-	    	randomSeed: range(0, 1, 0.01)
+	        amount: range(0, 1, 0.01),
+	        randomSeed: range(0, 1, 0.01)
 	    },
 	},
 	"dissolve": {
@@ -441,15 +443,15 @@ window.filterConfigs = {
 	    meshBox: "border-box",
 	    params: {
 	        transform: {
-	        	rotationX: 0,
+	            rotationX: 0,
 	            rotationY: 0,
 	            rotationZ: 0
 	        },
-	    	amount: 0.3
+	        amount: 0.3
 	    },
 	    config: {
 	        transform: transform(),
-	    	amount: range(0, 1, 0.01)
+	        amount: range(0, 1, 0.01)
 	    }
 	},
 	"page-curl": {
@@ -460,7 +462,7 @@ window.filterConfigs = {
 	    meshBox: "border-box",
 	    params: {
 	        transform: {
-	        	rotationX: 0,
+	            rotationX: 0,
 	            rotationY: 0,
 	            rotationZ: 0
 	        },
@@ -475,7 +477,7 @@ window.filterConfigs = {
 	        curlDirection: range(0, 360, 1.0),
 	        curlRadius: range(0.05, 3, 0.01),
 	        bleedThrough: range(0, 1, 0.01)
-	    }		
+	    }
 	}
 };
-})()
+})();
